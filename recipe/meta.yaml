@@ -1,5 +1,5 @@
 {% set name = "granian" %}
-{% set version = "1.0.2" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/granian-{{ version }}.tar.gz
-  sha256: 681064e1f6e95fc277d5c047f8070e5448671cdda55de6954d6ff384c43079b7
+  sha256: ba7fbc76e9845dee40c7f8b28925db5b3324ff9bc17b76111b699a1642e21ce7
 
 build:
   skip: true  # [py<38]
   entry_points:
     - granian = granian:cli.cli
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
