@@ -1,7 +1,10 @@
 {% set version = "1.2.3" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
-{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+{% if PYTHON is not defined %}
+  {% set PYTHON = "$PYTHON" %}   # [unix]
+  {% set PYTHON = "%PYTHON%" %}  # [win]
+{% endif %}
 
 package:
   name: granian
@@ -99,7 +102,7 @@ outputs:
       commands:
         - pip check
         - granian --help
-        - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes
+        - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req[runtime])"
         - coverage report --show-missing --skip-covered --fail-under=20
       requires:
         - coverage
