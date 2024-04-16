@@ -1,5 +1,5 @@
 {% set name = "granian" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/granian-{{ version }}.tar.gz
-  sha256: af877c5096fc87217dfd67557875fd1796fb0e2d3120856a97be380e221ba892
+  sha256: bbc30c7874cd707ac88e8a4a2282f784a0bdd2ccaa71a3783f1ae1a75fdf19b1
 
 build:
   skip: true  # [py<38]
