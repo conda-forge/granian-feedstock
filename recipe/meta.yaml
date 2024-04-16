@@ -1,10 +1,8 @@
 {% set version = "1.2.3" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
-{% if PYTHON is not defined %}
-  {% set PYTHON = "$PYTHON" %}   # [unix]
-  {% set PYTHON = "%PYTHON%" %}  # [win]
-{% endif %}
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}   # [unix]
+{% if PYTHON is not defined %}{% set PYTHON = "%PYTHON%" %}{% endif %}  # [win]
 
 package:
   name: granian
