@@ -20,7 +20,8 @@ outputs:
   - name: granian
     build:
       script:
-        - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+        - |-
+          {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
         - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
       entry_points:
         - granian = granian:cli.cli
