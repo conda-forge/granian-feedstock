@@ -147,6 +147,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian-green.svg)](https://anaconda.org/conda-forge/granian) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian.svg)](https://anaconda.org/conda-forge/granian) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian.svg)](https://anaconda.org/conda-forge/granian) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian.svg)](https://anaconda.org/conda-forge/granian) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--all-green.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--pname-green.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--reload-green.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) |
 
 Installing granian
 ==================
@@ -158,16 +161,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `granian` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `granian, granian-with-all, granian-with-pname, granian-with-reload` can be installed with `conda`:
 
 ```
-conda install granian
+conda install granian granian-with-all granian-with-pname granian-with-reload
 ```
 
 or with `mamba`:
 
 ```
-mamba install granian
+mamba install granian granian-with-all granian-with-pname granian-with-reload
 ```
 
 It is possible to list all of the versions of `granian` available on your platform with `conda`:
@@ -262,5 +265,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@thewchan](https://github.com/thewchan/)
 

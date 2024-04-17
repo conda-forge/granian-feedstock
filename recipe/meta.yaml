@@ -1,54 +1,127 @@
-{% set name = "granian" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
+
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}   # [unix]
+{% if PYTHON is not defined %}{% set PYTHON = "%PYTHON%" %}{% endif %}  # [win]
 
 package:
-  name: {{ name|lower }}
+  name: granian
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/granian-{{ version }}.tar.gz
-  sha256: 9bd77c6e72649d8caf5d7ceedaef462f97e168073cb1dfdf16de56d09f4b4db0
+  url: https://pypi.io/packages/source/g/granian/granian-{{ version }}.tar.gz
+  sha256: bbc30c7874cd707ac88e8a4a2282f784a0bdd2ccaa71a3783f1ae1a75fdf19b1
 
 build:
   skip: true  # [py<38]
-  entry_points:
-    - granian = granian:cli.cli
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('rust') }}
-  host:
-    - python
-    - maturin >=1.1.0,<1.5.0
-    - pip
-  run:
-    - python
-    - watchfiles >=0.21,<1.dev0
-    - typer >=0.4.2,<0.12.0
-    - uvloop >=0.18.0,<0.19.dev0  # [not win]
+outputs:
+  - name: granian
+    build:
+      script:
+        - |-
+          {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+        - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+      entry_points:
+        - granian = granian:cli.cli
+      script_env:
+        - RUST_BACKTRACE=1
+    requirements:
+      build:
+        - {{ compiler("c") }}
+        - {{ compiler("rust") }}
+        - cargo-bundle-licenses
+        # for the jemalloc-sys crate
+        - make   # [linux]
+      host:
+        - python
+        - maturin >=1.1.0,<1.5.0
+        - pip
+      run:
+        - python
+        - typer >=0.4.2,<0.12.0
+        - uvloop >=0.18.0,<0.19.dev0  # [not win]
+        # For OSX rust
+        - __osx >={{ c_stdlib_version|default("10.9") }}  # [osx and x86_64]
+    test:
+      imports:
+        - granian
+      commands:
+        - pip check
+        - granian --help
+      requires:
+        - pip
 
-    # For OSX rust
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
+  - name: granian-with-pname
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("granian", max_pin="x.x.x") }}
+        - setproctitle >=1.3.3,<1.4
+    test:
+      imports:
+        - granian
+      commands:
+        - pip check
+        - granian --help
+      requires:
+        - pip
 
-test:
-  imports:
-    - granian
-  commands:
-    - pip check
-    - granian --help
-  requires:
-    - pip
+  - name: granian-with-reload
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("granian", max_pin="x.x.x") }}
+        - watchfiles >=0.21,<0.22
+    test:
+      imports:
+        - granian
+      commands:
+        - pip check
+        - granian --help
+      requires:
+        - pip
+
+  - name: granian-with-all
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("granian", max_pin="x.x.x") }}
+        - {{ pin_subpackage("granian-with-pname", max_pin="x.x.x") }}
+        - {{ pin_subpackage("granian-with-reload", max_pin="x.x.x") }}
+    test:
+      source_files:
+        - tests
+      imports:
+        - granian
+      commands:
+        - pip check
+        - granian --help
+        - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req[runtime])"
+        - coverage report --show-missing --skip-covered --fail-under=20
+      requires:
+        - coverage
+        - httpx >=0.25.0,<0.26
+        - pip
+        - pytest >=7.4.2,<7.5
+        - pytest-asyncio >=0.21.1,<0.22
+        - websockets >=11.0,<12.0
 
 about:
   home: https://github.com/emmett-framework/granian
   summary: A Rust HTTP server for Python applications
   dev_url: https://github.com/emmett-framework/granian
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
 
 extra:
+  feedstock-name: granian
   recipe-maintainers:
     - thewchan
+    - bollwyvl
