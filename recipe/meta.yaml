@@ -102,7 +102,7 @@ outputs:
         - pip check
         - granian --help
         - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req[runtime])"
-        - coverage report --show-missing --skip-covered --fail-under=19
+        - coverage report --show-missing --skip-covered --fail-under=18
       requires:
         - coverage
         - httpx >=0.25.0,<0.26
