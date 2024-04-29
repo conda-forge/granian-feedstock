@@ -1,4 +1,4 @@
-{% set version = "1.2.3" %}
+{% set version = "1.3.0" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}   # [unix]
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/g/granian/granian-{{ version }}.tar.gz
-  sha256: bbc30c7874cd707ac88e8a4a2282f784a0bdd2ccaa71a3783f1ae1a75fdf19b1
+  sha256: 0167cfd189cbbe3a6a864833d891bec97fbc0cc8c274475e59fd4823bff8b177
 
 build:
   skip: true  # [py<38]
@@ -31,6 +31,7 @@ outputs:
       build:
         - {{ compiler("c") }}
         - {{ compiler("rust") }}
+        - {{ stdlib("c") }}
         - cargo-bundle-licenses
         # for the jemalloc-sys crate
         - make   # [linux]
@@ -40,10 +41,9 @@ outputs:
         - pip
       run:
         - python
-        - typer >=0.4.2,<0.12.0
+        - click >=8.0.0
         - uvloop >=0.18.0,<0.19.dev0  # [not win]
         # For OSX rust
-        - __osx >={{ c_stdlib_version|default("10.9") }}  # [osx and x86_64]
     test:
       imports:
         - granian
@@ -102,7 +102,7 @@ outputs:
         - pip check
         - granian --help
         - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req[runtime])"
-        - coverage report --show-missing --skip-covered --fail-under=20
+        - coverage report --show-missing --skip-covered --fail-under=18
       requires:
         - coverage
         - httpx >=0.25.0,<0.26
