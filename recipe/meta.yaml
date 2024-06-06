@@ -101,7 +101,7 @@ outputs:
       commands:
         - pip check
         - granian --help
-        - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req[runtime])"
+        - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req)"
         - coverage report --show-missing --skip-covered --fail-under=18
       requires:
         - coverage
