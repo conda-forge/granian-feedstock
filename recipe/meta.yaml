@@ -42,8 +42,7 @@ outputs:
       run:
         - python
         - click >=8.0.0
-        - uvloop >=0.18.0,<0.19.dev0  # [not win]
-        # For OSX rust
+        - uvloop >=0.18.0  # [not win]
     test:
       imports:
         - granian
