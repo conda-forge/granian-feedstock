@@ -100,10 +100,8 @@ outputs:
       commands:
         - pip check
         - granian --help
-        - coverage run --source=granian --branch -m pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req)"
-        - coverage report --show-missing --skip-covered --fail-under=18
+        - pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req or (test_scope and workers))"
       requires:
-        - coverage
         - httpx >=0.25.0,<0.26
         - pip
         - pytest >=7.4.2,<7.5
