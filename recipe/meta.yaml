@@ -13,8 +13,7 @@ source:
   sha256: 718949b6031135297d8724516fc67d08defbda175d68834417880d36968a0917
 
 build:
-  skip: true  # [py<38]
-  number: 0
+  number: 1
 
 outputs:
   - name: granian
