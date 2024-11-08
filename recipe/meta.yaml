@@ -41,6 +41,7 @@ outputs:
         - python
         - maturin >=1.1.0,<2
         - pip
+        - jemalloc                            # [unix]
       run:
         - python
         - click >=8.0.0
