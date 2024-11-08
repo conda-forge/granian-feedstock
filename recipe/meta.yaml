@@ -9,7 +9,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/g/granian/granian-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/g/granian/granian-{{ version }}.tar.gz
   sha256: 718949b6031135297d8724516fc67d08defbda175d68834417880d36968a0917
 
 build:
