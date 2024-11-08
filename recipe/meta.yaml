@@ -77,7 +77,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage("granian", max_pin="x.x.x") }}
-        - watchfiles >=0.21,<0.22
+        - watchfiles >=0.21,<1.0
     test:
       imports:
         - granian
