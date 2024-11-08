@@ -109,7 +109,7 @@ outputs:
         - pip
         - pytest >=7.4.2,<7.5
         - pytest-asyncio >=0.21.1,<0.22
-        - websockets >=11.0,<12.0
+        - websockets
 
 about:
   home: https://github.com/emmett-framework/granian
