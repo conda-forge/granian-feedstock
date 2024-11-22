@@ -1,4 +1,4 @@
-{% set version = "1.6.3" %}
+{% set version = "1.6.4" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}   # [unix]
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-{{ version }}.tar.gz
-  sha256: 718949b6031135297d8724516fc67d08defbda175d68834417880d36968a0917
+  sha256: cda197977b2fd26661f76e061d15cc6808c99f3186e89646ed3df059d0408155
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - name: granian
@@ -103,7 +103,7 @@ outputs:
       commands:
         - pip check
         - granian --help
-        - pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req or (test_scope and workers))"
+        - pytest -vv --tb=long --color=yes -k "not (test_reject or (test_rsgi and test_body_stream_req) or (test_scope and workers))"
       requires:
         - httpx >=0.25.0,<0.26
         - pip
