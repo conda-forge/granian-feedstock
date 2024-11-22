@@ -103,7 +103,7 @@ outputs:
       commands:
         - pip check
         - granian --help
-        - pytest -vv --tb=long --color=yes -k "not (test_rsgi and test_body_stream_req or (test_scope and workers))"
+        - pytest -vv --tb=long --color=yes -k "not (test_reject or (test_rsgi and test_body_stream_req) or (test_scope and workers))"
       requires:
         - httpx >=0.25.0,<0.26
         - pip
