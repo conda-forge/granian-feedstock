@@ -24,8 +24,6 @@ outputs:
         - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
       entry_points:
         - granian = granian:cli.cli
-      script_env:
-        - RUST_BACKTRACE=1
     requirements:
       build:
         - {{ compiler("c") }}
@@ -98,18 +96,19 @@ outputs:
     test:
       source_files:
         - tests
+      requires:
+        - httpx >=0.25.0,<0.26
+        - pip
+        - pytest >=7.4.2,<7.5
+        - pytest-asyncio >=0.21.1,<0.22
+        - websockets >=11,<12
+        - sniffio >=1.3,<2
       imports:
         - granian
       commands:
         - pip check
         - granian --help
         - pytest -vv --tb=long --color=yes -k "not (test_reject or (test_rsgi and test_body_stream_req) or (test_scope and workers))"
-      requires:
-        - httpx >=0.25.0,<0.26
-        - pip
-        - pytest >=7.4.2,<7.5
-        - pytest-asyncio >=0.21.1,<0.22
-        - websockets
 
 about:
   home: https://github.com/emmett-framework/granian
