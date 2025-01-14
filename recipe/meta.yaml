@@ -1,4 +1,4 @@
-{% set version = "1.7.4" %}
+{% set version = "1.7.5" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}   # [unix]
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-{{ version }}.tar.gz
-  sha256: 6c4a34919106269c36e200d39775ef5697e0e0c2c0ddbd78edbf1ebc71d2142c
+  sha256: 10dcca902d581d45555ae0f4e178996c9bc71006ea66258499b626cc9b76ce02
 
 build:
   number: 0
