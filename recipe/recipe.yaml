@@ -10,6 +10,10 @@ recipe:
   name: granian
   version: ${{ version }}
 
+source:
+  url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
+  sha256: 5e36d28b947b2c18bc7dc61072b3aa67c28b28d871f55a4daabea8eb6300e50e
+
 build:
   number: 0
   skip: not (match(python, python_min) and is_abi3 == 'true')
