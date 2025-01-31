@@ -13,7 +13,7 @@ K = ["-k", f"not ({SKIP_OR})"]
 
 
 def main():
-    proc = psutil.Process([*PYTEST])
+    proc = psutil.Popen([*PYTEST])
     rc = proc.wait()
     all_procs = [*proc.children(recursive=True), proc]
     killed = []
