@@ -12,14 +12,16 @@ recipe:
 
 build:
   number: 0
+  skip: not (match(python, python_min) and is_abi3 == 'true')
 
 outputs:
   - package:
       name: granian
     build:
-      skip: not (match(python, python_min) and is_abi3 == 'true')
       python:
         version_independent: true
+        entry_points:
+          - granian = granian:cli.cli
     requirements:
       build:
         - ${{ compiler("c") }}
