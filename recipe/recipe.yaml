@@ -16,7 +16,7 @@ source:
 
 build:
   number: 0
-  skip: not (match(python, python_min) and is_abi3 == 'true')
+  # skip: not (match(python, python_min) and is_abi3 == 'true')
 
 outputs:
   - package:
@@ -25,9 +25,9 @@ outputs:
       script:
         - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
         - |-
-          {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+          ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
       python:
-        version_independent: true
+        # version_independent: true
         entry_points:
           - granian = granian:cli.cli
     requirements:
@@ -48,7 +48,7 @@ outputs:
       host:
         - pip
         - python
-        - python-abi3
+        # - python-abi3
         - maturin >=1.1.0,<2
         - if: unix
           then:
@@ -64,7 +64,7 @@ outputs:
         - watchfiles >=0.21,<2.0
     tests:
       - python:
-          python_version: ${{ python_min }}
+          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - requirements:
@@ -84,7 +84,7 @@ outputs:
         - setproctitle
     tests:
       - python:
-          python_version: ${{ python_min }}
+          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - requirements:
@@ -104,7 +104,7 @@ outputs:
         - watchfiles
     tests:
       - python:
-          python_version: ${{ python_min }}
+          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - requirements:
@@ -125,7 +125,7 @@ outputs:
         - ${{ pin_subpackage("granian-with-reload", upper_bound="x.x.x") }}
     tests:
       - python:
-          python_version: ${{ python_min }}
+          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - files:
