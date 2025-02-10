@@ -1,7 +1,6 @@
 import sys
 import psutil
 
-PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long"]
 
 SKIPS = [
     "(test_ws and test_reject)",
@@ -12,6 +11,7 @@ SKIPS = [
 SKIP_OR = " or ".join(SKIPS)
 K = ["-k", f"not ({SKIP_OR})"]
 
+PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 
 def main():
     print(">>>", *PYTEST, flush=True)
