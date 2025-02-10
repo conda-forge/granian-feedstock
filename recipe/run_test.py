@@ -4,9 +4,9 @@ import psutil
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long"]
 
 SKIPS = [
-    "test_reject",
+    "(test_ws and test_reject)",
     "(test_rsgi and test_body_stream_req)",
-    "test_scope and workers",
+    "(test_scope and workers)",
 ]
 
 SKIP_OR = " or ".join(SKIPS)
@@ -14,6 +14,7 @@ K = ["-k", f"not ({SKIP_OR})"]
 
 
 def main():
+    print(">>>", *PYTEST, flush=True)
     proc = psutil.Popen([*PYTEST])
     rc = proc.wait()
     all_procs = [*proc.children(recursive=True), proc]
