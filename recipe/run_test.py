@@ -4,7 +4,8 @@ import psutil
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long"]
 
 SKIPS = [
-    "test_reject(test_rsgi and test_body_stream_req)",
+    "test_reject",
+    "(test_rsgi and test_body_stream_req)",
     "test_scope and workers",
 ]
 
