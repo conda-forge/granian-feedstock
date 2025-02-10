@@ -4,7 +4,6 @@ schema_version: 1
 context:
   version: 1.7.6
   maturin_version: ">=1.1.0,<2"
-  python_min: ${{ python_min }}.*
 
 recipe:
   name: granian
@@ -16,7 +15,6 @@ source:
 
 build:
   number: 0
-  # skip: not (match(python, python_min) and is_abi3 == 'true')
 
 outputs:
   - package:
@@ -64,7 +62,6 @@ outputs:
         - watchfiles >=0.21,<2.0
     tests:
       - python:
-          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - requirements:
@@ -84,7 +81,6 @@ outputs:
         - setproctitle
     tests:
       - python:
-          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - requirements:
@@ -104,7 +100,6 @@ outputs:
         - watchfiles
     tests:
       - python:
-          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - requirements:
@@ -125,7 +120,6 @@ outputs:
         - ${{ pin_subpackage("granian-with-reload", upper_bound="x.x.x") }}
     tests:
       - python:
-          # python_version: ${{ python_min }}
           pip_check: true
           imports: granian
       - files:
