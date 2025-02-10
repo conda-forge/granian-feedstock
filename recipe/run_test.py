@@ -19,7 +19,7 @@ PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 
 def main():
     print(">>>", *PYTEST, flush=True)
-    tmp = Path(tempfile.TemporaryDirectory())
+    tmp = Path(tempfile.mkdtemp())
     shutil.copytree(Path("tests"), tmp / "tests")
     proc = psutil.Popen([*PYTEST], cwd=str(tmp))
     rc = proc.wait()
