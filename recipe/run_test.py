@@ -1,7 +1,6 @@
 import sys
 import psutil
 import time
-import tempfile
 import shutil
 import os
 from pathlib import Path
@@ -41,10 +40,11 @@ def clean(path: Path, retries: int = 1) -> None:
 
 def main():
     print(">>>", *PYTEST, flush=True)
-    tmp = Path(tempfile.mkdtemp())
+    tmp = Path("tmp").resolve()
     env = dict(os.environ)
+    env.update(PYTHONDONTWRITEBYTECODE="1")
     env["TMP"] = env["TEMP"] = str(tmp / "TEMP")
-    shutil.copytree(Path("tests"), tmp / "tests")
+    shutil.copytree(Path("tests").resolve(), tmp / "tests")
     proc = psutil.Popen([*PYTEST], cwd=str(tmp), env=env)
     rc = proc.wait()
     all_procs = [*proc.children(recursive=True), proc]
