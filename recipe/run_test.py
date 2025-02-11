@@ -51,7 +51,6 @@ def clean(path: Path, retries: int = 1) -> None:
 def main():
     print(">>>", *PYTEST, flush=True)
     tmp = Path(tempfile.mkdtemp())
-    tmp.mkdir()
     env = dict(os.environ)
     env.update(PYTHONDONTWRITEBYTECODE="1")
     env["TMP"] = env["TEMP"] = str(tmp / "TEMP")
