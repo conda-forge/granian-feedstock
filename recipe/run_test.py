@@ -21,9 +21,9 @@ PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 def clean(path: Path, retries: int = 1) -> None:
     time.sleep(1)
     print("setting permissions...", flush=True)
-    for path in path.rglob("*"):
+    for child in path.rglob("*"):
         print(".", end="")
-        path.chmod(0o777)
+        child.chmod(0o777)
     print("\ncleaning...", path, flush=True)
     try:
         shutil.rmtree(path)
