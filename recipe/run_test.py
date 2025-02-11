@@ -2,6 +2,7 @@ import sys
 import psutil
 import time
 import shutil
+import tempfile
 import os
 from pathlib import Path
 
@@ -49,7 +50,7 @@ def clean(path: Path, retries: int = 1) -> None:
 
 def main():
     print(">>>", *PYTEST, flush=True)
-    tmp = Path("_tmp").resolve()
+    tmp = Path(tempfile.mkdtemp())
     tmp.mkdir()
     env = dict(os.environ)
     env.update(PYTHONDONTWRITEBYTECODE="1")
