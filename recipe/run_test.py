@@ -21,12 +21,21 @@ PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 def clean(path: Path, retries: int = 1) -> None:
     time.sleep(1)
     print("setting permissions...", flush=True)
-    for child in path.rglob("*"):
-        print(".", end="")
-        child.chmod(0o777)
-    print("\ncleaning...", path, flush=True)
+    failed = 0
+    for p in reversed([path, *sorted(path.rglob("*"))]):
+        print(f"... {p}")
+        try:
+            p.chmod(0o777)
+            if p.is_dir():
+                shutil.rmtree(p, ignore_errors=True)
+            elif p.is_file():
+                p.unlink()
+        except Exception as err:
+            print(f"!!! {err}", flush=True)
+            failed += 1
     try:
-        shutil.rmtree(path)
+        if path.exists():
+            shutil.rmtree(path)
     except Exception as err:
         print("!!!", err, flush=True)
         if retries:
@@ -40,7 +49,8 @@ def clean(path: Path, retries: int = 1) -> None:
 
 def main():
     print(">>>", *PYTEST, flush=True)
-    tmp = Path("tmp").resolve()
+    tmp = Path("_tmp").resolve()
+    tmp.mkdir()
     env = dict(os.environ)
     env.update(PYTHONDONTWRITEBYTECODE="1")
     env["TMP"] = env["TEMP"] = str(tmp / "TEMP")
@@ -59,7 +69,7 @@ def main():
     if killed:
         psutil.wait_procs(killed)
 
-    clean(tmp)
+    clean(tmp, 3)
 
     return rc
 
