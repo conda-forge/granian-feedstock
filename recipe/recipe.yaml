@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: 2.0.0
-  maturin_min: 1.1.0
+  maturin_min: 1.8.0
   maturin_max: "2"
 
 recipe:
