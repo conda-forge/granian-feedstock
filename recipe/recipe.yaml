@@ -150,7 +150,7 @@ outputs:
           run:
             - if: unix
               then:
-                - ${{ pin_subpackage("granian-with-uvloop", upper_bound="x.x.x") }}
+                - granian-with-uvloop
             - httpx >=0.25.0,<0.26
             - pytest >=7.4.2,<7.5
             - pytest-asyncio >=0.21.1,<0.22
