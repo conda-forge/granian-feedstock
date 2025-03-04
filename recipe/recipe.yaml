@@ -2,8 +2,8 @@
 schema_version: 1
 
 context:
-  version: 1.7.6
-  maturin_min: 1.1.0
+  version: 2.0.0
+  maturin_min: 1.8.0
   maturin_max: "2"
 
 recipe:
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: 5e36d28b947b2c18bc7dc61072b3aa67c28b28d871f55a4daabea8eb6300e50e
+  sha256: d040c63e069ce195607530afa53fc1fd50b8e99284184f051e5bd6b4c3742081
 
 build:
   number: 1
@@ -51,14 +51,13 @@ outputs:
           then:
             - jemalloc
       run:
-        - python
         - click >=8.0.0
-        - if: unix
-          then:
-            - uvloop >=0.18.0
+        - python
       run_constraints:
+        - rloop >=0.1,<0.2
         - setproctitle >=1.3.3,<1.4
-        - watchfiles >=0.21,<2.0
+        - uvloop >=0.18.0
+        - watchfiles >=1.0,<2.0
     tests:
       - python:
           pip_check: true
@@ -109,6 +108,47 @@ outputs:
           - granian --help
 
   - package:
+      name: granian-with-rloop
+    build:
+      noarch: generic
+      skip: win
+    requirements:
+      run:
+        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - rloop
+    tests:
+      - python:
+          pip_check: true
+          imports: granian
+      - requirements:
+          run:
+            - pip
+        script:
+          - pip check
+          - granian --help
+
+  - package:
+      name: granian-with-uvloop
+    build:
+      noarch: generic
+      skip: win
+    requirements:
+      run:
+        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - uvloop
+    tests:
+      - python:
+          pip_check: true
+          imports: granian
+      - requirements:
+          run:
+            - pip
+        script:
+          - pip check
+          - granian --help
+
+
+  - package:
       name: granian-with-all
     build:
       noarch: generic
@@ -128,6 +168,10 @@ outputs:
             - run_test.py
         requirements:
           run:
+            - if: unix
+              then:
+                - granian-with-rloop
+                - granian-with-uvloop
             - httpx >=0.25.0,<0.26
             - pytest >=7.4.2,<7.5
             - pytest-asyncio >=0.21.1,<0.22

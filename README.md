@@ -64,6 +64,76 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_aarch64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_python3.11.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.11.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_python3.12.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.12.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_python3.13.____cp313</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.13.____cp313" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_python3.11.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.11.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_python3.12.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.12.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_python3.13.____cp313</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.13.____cp313" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
@@ -185,6 +255,8 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--all-green.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--pname-green.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--reload-green.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--rloop-green.svg)](https://anaconda.org/conda-forge/granian-with-rloop) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-rloop.svg)](https://anaconda.org/conda-forge/granian-with-rloop) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-rloop.svg)](https://anaconda.org/conda-forge/granian-with-rloop) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-rloop.svg)](https://anaconda.org/conda-forge/granian-with-rloop) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--uvloop-green.svg)](https://anaconda.org/conda-forge/granian-with-uvloop) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-uvloop.svg)](https://anaconda.org/conda-forge/granian-with-uvloop) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-uvloop.svg)](https://anaconda.org/conda-forge/granian-with-uvloop) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-uvloop.svg)](https://anaconda.org/conda-forge/granian-with-uvloop) |
 
 Installing granian
 ==================
@@ -196,16 +268,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `granian, granian-with-all, granian-with-pname, granian-with-reload` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `granian, granian-with-all, granian-with-pname, granian-with-reload, granian-with-rloop, granian-with-uvloop` can be installed with `conda`:
 
 ```
-conda install granian granian-with-all granian-with-pname granian-with-reload
+conda install granian granian-with-all granian-with-pname granian-with-reload granian-with-rloop granian-with-uvloop
 ```
 
 or with `mamba`:
 
 ```
-mamba install granian granian-with-all granian-with-pname granian-with-reload
+mamba install granian granian-with-all granian-with-pname granian-with-reload granian-with-rloop granian-with-uvloop
 ```
 
 It is possible to list all of the versions of `granian` available on your platform with `conda`:
