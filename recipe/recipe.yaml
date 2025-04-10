@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.2.2"
+  version: "2.2.3"
   maturin_min: 1.8.0
   maturin_max: "2"
 
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: a5560aa015e5575c5cf5b073e60258f804e886e871511ca18cf993ff199453c2
+  sha256: 0bef63bac7d3f5dfa93cd07a76dc10aa8a93eab3308622360929a7b9fb2bc400
 
 build:
   number: 0
