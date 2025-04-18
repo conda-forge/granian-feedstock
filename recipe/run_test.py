@@ -12,5 +12,16 @@ K = ["-k", f"not ({SKIP_OR})"]
 
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 
+
+def main() -> int:
+    proc = Popen(PYTEST)
+    try:
+        return proc.wait(timeout=400)
+    finally:
+        proc.kill()
+        proc.terminate()
+        return 1
+
+
 if __name__ == "__main__":
-    sys.exit(Popen(PYTEST).wait(timeout=400))
+    sys.exit(main())
