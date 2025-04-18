@@ -1,5 +1,5 @@
 import sys
-from subprocess import call
+from subprocess import Popen
 
 SKIPS = [
     "(test_ws and test_reject)",
@@ -12,6 +12,5 @@ K = ["-k", f"not ({SKIP_OR})"]
 
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 
-
 if __name__ == "__main__":
-    sys.exit(call(PYTEST))
+    sys.exit(Popen(PYTEST).wait(timeout=400))
