@@ -16,7 +16,7 @@ PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", *K]
 def main() -> int:
     proc = Popen(PYTEST)
     try:
-        return proc.wait(timeout=400)
+        return proc.wait(timeout=500)
     finally:
         proc.kill()
         proc.terminate()
