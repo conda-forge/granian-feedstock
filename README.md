@@ -225,6 +225,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian-green.svg)](https://anaconda.org/conda-forge/granian) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian.svg)](https://anaconda.org/conda-forge/granian) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian.svg)](https://anaconda.org/conda-forge/granian) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian.svg)](https://anaconda.org/conda-forge/granian) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--all-green.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-all.svg)](https://anaconda.org/conda-forge/granian-with-all) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--dotenv-green.svg)](https://anaconda.org/conda-forge/granian-with-dotenv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-dotenv.svg)](https://anaconda.org/conda-forge/granian-with-dotenv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-dotenv.svg)](https://anaconda.org/conda-forge/granian-with-dotenv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-dotenv.svg)](https://anaconda.org/conda-forge/granian-with-dotenv) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--pname-green.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-pname.svg)](https://anaconda.org/conda-forge/granian-with-pname) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--reload-green.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-reload.svg)](https://anaconda.org/conda-forge/granian-with-reload) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-granian--with--rloop-green.svg)](https://anaconda.org/conda-forge/granian-with-rloop) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/granian-with-rloop.svg)](https://anaconda.org/conda-forge/granian-with-rloop) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/granian-with-rloop.svg)](https://anaconda.org/conda-forge/granian-with-rloop) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/granian-with-rloop.svg)](https://anaconda.org/conda-forge/granian-with-rloop) |
@@ -240,16 +241,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `granian, granian-with-all, granian-with-pname, granian-with-reload, granian-with-rloop, granian-with-uvloop` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `granian, granian-with-all, granian-with-dotenv, granian-with-pname, granian-with-reload, granian-with-rloop, granian-with-uvloop` can be installed with `conda`:
 
 ```
-conda install granian granian-with-all granian-with-pname granian-with-reload granian-with-rloop granian-with-uvloop
+conda install granian granian-with-all granian-with-dotenv granian-with-pname granian-with-reload granian-with-rloop granian-with-uvloop
 ```
 
 or with `mamba`:
 
 ```
-mamba install granian granian-with-all granian-with-pname granian-with-reload granian-with-rloop granian-with-uvloop
+mamba install granian granian-with-all granian-with-dotenv granian-with-pname granian-with-reload granian-with-rloop granian-with-uvloop
 ```
 
 It is possible to list all of the versions of `granian` available on your platform with `conda`:
