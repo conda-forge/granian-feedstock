@@ -3,6 +3,76 @@ About granian-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/granian-feedstock/blob/main/LICENSE.txt)
 
+
+About granian
+-------------
+
+Home: https://github.com/emmett-framework/granian
+
+Package license: BSD-3-Clause
+
+Summary: A Rust HTTP server for Python applications
+
+Development: https://github.com/emmett-framework/granian
+
+About granian-with-all
+----------------------
+
+Home: https://github.com/emmett-framework/granian
+
+Package license: BSD-3-Clause
+
+Summary: A Rust HTTP server for Python applications
+
+Development: https://github.com/emmett-framework/granian
+
+About granian-with-dotenv
+-------------------------
+
+Home: https://github.com/emmett-framework/granian
+
+Package license: BSD-3-Clause
+
+Summary: A Rust HTTP server for Python applications
+
+Development: https://github.com/emmett-framework/granian
+
+About granian-with-pname
+------------------------
+
+Home: https://github.com/emmett-framework/granian
+
+Package license: BSD-3-Clause
+
+Summary: A Rust HTTP server for Python applications
+
+Development: https://github.com/emmett-framework/granian
+
+About granian-with-reload
+-------------------------
+
+Home: https://github.com/emmett-framework/granian
+
+Package license: BSD-3-Clause
+
+Summary: A Rust HTTP server for Python applications
+
+Development: https://github.com/emmett-framework/granian
+
+About granian-with-rloop
+------------------------
+
+Home: https://github.com/emmett-framework/granian
+
+Package license: BSD-3-Clause
+
+Summary: A Rust HTTP server for Python applications
+
+Development: https://github.com/emmett-framework/granian
+
+About granian-with-uvloop
+-------------------------
+
 Home: https://github.com/emmett-framework/granian
 
 Package license: BSD-3-Clause
