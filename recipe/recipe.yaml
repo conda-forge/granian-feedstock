@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.3.4"
+  version: "2.4.0"
   maturin_min: 1.8.0
   maturin_max: "2"
 
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: ed04cb7f9befb1bcb8f97b7fee6d19eb4375346eeddd43c77193c35e9cf66b9a
+  sha256: 0b49a522bb485823404daae49160b81c7cbf8e2a402dcd9b02f48da8465da8b7
 
 build:
   number: 0
@@ -68,6 +68,31 @@ outputs:
         script:
           - pip check
           - granian --help
+    about:
+      license_file:
+        - LICENSE
+        - THIRDPARTY.yml
+
+  - package:
+      name: granian-with-dotenv
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - python-dotenv >=1.1,<2
+    tests:
+      - python:
+          pip_check: true
+          imports: granian
+      - requirements:
+          run:
+            - pip
+        script:
+          - pip check
+          - granian --help
+    about:
+      license_file: LICENSE
 
   - package:
       name: granian-with-pname
@@ -87,6 +112,8 @@ outputs:
         script:
           - pip check
           - granian --help
+    about:
+      license_file: LICENSE
 
   - package:
       name: granian-with-reload
@@ -106,6 +133,8 @@ outputs:
         script:
           - pip check
           - granian --help
+    about:
+      license_file: LICENSE
 
   - package:
       name: granian-with-rloop
@@ -126,6 +155,8 @@ outputs:
         script:
           - pip check
           - granian --help
+    about:
+      license_file: LICENSE
 
   - package:
       name: granian-with-uvloop
@@ -146,6 +177,8 @@ outputs:
         script:
           - pip check
           - granian --help
+    about:
+      license_file: LICENSE
 
   - package:
       name: granian-with-all
@@ -156,6 +189,7 @@ outputs:
         - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
         - ${{ pin_subpackage("granian-with-pname", upper_bound="x.x.x") }}
         - ${{ pin_subpackage("granian-with-reload", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian-with-dotenv", upper_bound="x.x.x") }}
     tests:
       - python:
           pip_check: true
@@ -193,15 +227,15 @@ outputs:
       #         - psutil
       #     script:
       #       - python run_test.py
+    about:
+      license_file: LICENSE
 
 about:
   homepage: https://github.com/emmett-framework/granian
   summary: A Rust HTTP server for Python applications
   repository: https://github.com/emmett-framework/granian
   license: BSD-3-Clause
-  license_file:
-    - LICENSE
-    - THIRDPARTY.yml
+  license_file: LICENSE
 
 extra:
   feedstock-name: granian
