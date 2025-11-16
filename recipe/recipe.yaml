@@ -277,6 +277,8 @@ outputs:
       #       - python run_test.py
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with all platform-independent [extras])
 
 about:
   homepage: https://github.com/emmett-framework/granian

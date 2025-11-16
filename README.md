@@ -22,7 +22,7 @@ Home: https://github.com/emmett-framework/granian
 
 Package license: BSD-3-Clause
 
-Summary: A Rust HTTP server for Python applications
+Summary: A Rust HTTP server for Python applications (with all platform-independent [extras])
 
 Development: https://github.com/emmett-framework/granian
 
