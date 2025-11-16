@@ -2,9 +2,10 @@
 schema_version: 1
 
 context:
-  version: "2.5.7"
+  version: "2.6.0"
   maturin_min: 1.8.0
   maturin_max: "2"
+  summary: A Rust HTTP server for Python applications
 
 recipe:
   name: granian
@@ -12,7 +13,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: 4702a7bcc736454803426bd2c4e7a374739ae1e4b11d27bcdc49b691d316fa0c
+  sha256: d9b773633e411c7bf51590704e608e757dab09cd452fb18971a50a7d7c439677
 
 build:
   number: 0
@@ -79,7 +80,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - python-dotenv >=1.1,<2
     tests:
       - python:
@@ -93,6 +94,8 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [dotenv])
 
   - package:
       name: granian-with-pname
@@ -100,7 +103,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - setproctitle
     tests:
       - python:
@@ -114,6 +117,8 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [pname])
 
   - package:
       name: granian-with-reload
@@ -121,7 +126,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - watchfiles
     tests:
       - python:
@@ -135,15 +140,18 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [reload])
 
+  # unix
   - package:
       name: granian-with-rloop
     build:
       noarch: generic
-      skip: win
+      skip: not unix
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - rloop
     tests:
       - python:
@@ -157,15 +165,17 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [rloop])
 
   - package:
       name: granian-with-uvloop
     build:
       noarch: generic
-      skip: win
+      skip: not unix
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - uvloop
     tests:
       - python:
@@ -179,6 +189,33 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [uvloop])
+
+  # windows
+  - package:
+      name: granian-with-winloop
+    build:
+      noarch: generic
+      skip: not win
+    requirements:
+      run:
+        - ${{ pin_subpackage("granian", exact=True) }}
+        - winloop >=0.2.2
+    tests:
+      - python:
+          pip_check: true
+          imports: granian
+      - requirements:
+          run:
+            - pip
+        script:
+          - pip check
+          - granian --help
+    about:
+      license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [winloop])
 
   - package:
       name: granian-with-all
@@ -186,53 +223,22 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
-        - ${{ pin_subpackage("granian-with-pname", upper_bound="x.x.x") }}
-        - ${{ pin_subpackage("granian-with-reload", upper_bound="x.x.x") }}
-        - ${{ pin_subpackage("granian-with-dotenv", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
+        - ${{ pin_subpackage("granian-with-pname", exact=True) }}
+        - ${{ pin_subpackage("granian-with-reload", exact=True) }}
+        - ${{ pin_subpackage("granian-with-dotenv", exact=True) }}
     tests:
       - python:
           pip_check: true
           imports: granian
-      - script:
-          - granian --help
-      # https://github.com/conda-forge/granian-feedstock/pull/62
-      # tests disabled, always hang after completion
-      # - if: unix and (build_platform == target_platform)
-      #   # windows tests pass, but fail on cleanup due to:
-      #   #
-      #   #   failed to remove directory `work\test`: Access is denied. (os error 5)
-      #   #
-      #   # all linux-ppc64le and linux-aarch64 tests fail due to networking issues
-      #   #
-      #   #   RuntimeError: Cannot bind server
-      #   #
-      #   then:
-      #     files:
-      #       source:
-      #         - tests/
-      #       recipe:
-      #         - run_test.py
-      #     requirements:
-      #       run:
-      #         - if: unix
-      #           then:
-      #             - granian-with-rloop
-      #             - granian-with-uvloop
-      #         - httpx >=0.25.0,<0.26
-      #         - pytest >=7.4.2,<7.5
-      #         - pytest-asyncio >=0.21.1,<0.22
-      #         - websockets
-      #         - sniffio >=1.3,<2
-      #         - psutil
-      #     script:
-      #       - python run_test.py
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with all platform-independent [extras])
 
 about:
   homepage: https://github.com/emmett-framework/granian
-  summary: A Rust HTTP server for Python applications
+  summary: ${{ summary }}
   repository: https://github.com/emmett-framework/granian
   license: BSD-3-Clause
   license_file: LICENSE
