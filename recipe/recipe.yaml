@@ -79,7 +79,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - python-dotenv >=1.1,<2
     tests:
       - python:
@@ -100,7 +100,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - setproctitle
     tests:
       - python:
@@ -121,7 +121,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - watchfiles
     tests:
       - python:
@@ -143,7 +143,7 @@ outputs:
       skip: win
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - rloop
     tests:
       - python:
@@ -165,8 +165,30 @@ outputs:
       skip: win
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
         - uvloop
+    tests:
+      - python:
+          pip_check: true
+          imports: granian
+      - requirements:
+          run:
+            - pip
+        script:
+          - pip check
+          - granian --help
+    about:
+      license_file: LICENSE
+
+  - package:
+      name: granian-with-winloop
+    build:
+      noarch: generic
+      skip: unix
+    requirements:
+      run:
+        - ${{ pin_subpackage("granian", exact=True) }}
+        - winloop >=0.2.2
     tests:
       - python:
           pip_check: true
@@ -186,15 +208,23 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("granian", upper_bound="x.x.x") }}
-        - ${{ pin_subpackage("granian-with-pname", upper_bound="x.x.x") }}
-        - ${{ pin_subpackage("granian-with-reload", upper_bound="x.x.x") }}
-        - ${{ pin_subpackage("granian-with-dotenv", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("granian", exact=True) }}
+        - ${{ pin_subpackage("granian-with-pname", exact=True) }}
+        - ${{ pin_subpackage("granian-with-reload", exact=True) }}
+        - ${{ pin_subpackage("granian-with-dotenv", exact=True) }}
     tests:
       - python:
           pip_check: true
           imports: granian
-      - script:
+      - requirements:
+          run:
+            - if: win
+              then:
+                - ${{ pin_subpackage("granian-with-winloop", exact=True) }}
+              else:
+                - ${{ pin_subpackage("granian-with-rloop", exact=True) }}
+                - ${{ pin_subpackage("granian-with-uvloop", exact=True) }}
+        script:
           - granian --help
       # https://github.com/conda-forge/granian-feedstock/pull/62
       # tests disabled, always hang after completion
