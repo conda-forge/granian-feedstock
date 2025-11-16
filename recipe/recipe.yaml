@@ -5,6 +5,7 @@ context:
   version: "2.6.0"
   maturin_min: 1.8.0
   maturin_max: "2"
+  summary: A Rust HTTP server for Python applications
 
 recipe:
   name: granian
@@ -93,6 +94,8 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [dotenv])
 
   - package:
       name: granian-with-pname
@@ -114,6 +117,9 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [pname])
+
 
   - package:
       name: granian-with-reload
@@ -135,6 +141,9 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [reload])
+
 
   - package:
       name: granian-with-rloop
@@ -157,6 +166,9 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [rloop])
+
 
   - package:
       name: granian-with-uvloop
@@ -179,6 +191,9 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [uvloop])
+
 
   - package:
       name: granian-with-winloop
@@ -201,6 +216,9 @@ outputs:
           - granian --help
     about:
       license_file: LICENSE
+      license: BSD-3-Clause
+      summary: ${{ summary }} (with [winloop])
+
 
   - package:
       name: granian-with-all
@@ -262,7 +280,7 @@ outputs:
 
 about:
   homepage: https://github.com/emmett-framework/granian
-  summary: A Rust HTTP server for Python applications
+  summary: ${{ summary }}
   repository: https://github.com/emmett-framework/granian
   license: BSD-3-Clause
   license_file: LICENSE
