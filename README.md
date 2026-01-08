@@ -7,7 +7,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/granian-feedsto
 About granian
 -------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -18,7 +18,7 @@ Development: https://github.com/emmett-framework/granian
 About granian-with-all
 ----------------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -29,7 +29,7 @@ Development: https://github.com/emmett-framework/granian
 About granian-with-dotenv
 -------------------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -40,7 +40,7 @@ Development: https://github.com/emmett-framework/granian
 About granian-with-pname
 ------------------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -51,7 +51,7 @@ Development: https://github.com/emmett-framework/granian
 About granian-with-reload
 -------------------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -62,7 +62,7 @@ Development: https://github.com/emmett-framework/granian
 About granian-with-rloop
 ------------------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -73,7 +73,7 @@ Development: https://github.com/emmett-framework/granian
 About granian-with-uvloop
 -------------------------
 
-Home: https://github.com/emmett-framework/granian
+Home: https://pypi.org/project/granian
 
 Package license: BSD-3-Clause
 
@@ -138,41 +138,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.14.____cp314" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/granian-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.14.____cp314" alt="variant">
                 </a>
               </td>
             </tr><tr>
