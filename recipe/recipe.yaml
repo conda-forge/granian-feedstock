@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.6.0"
+  version: "2.6.1"
   maturin_min: 1.8.0
   maturin_max: "2"
   summary: A Rust HTTP server for Python applications
@@ -13,7 +13,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: d9b773633e411c7bf51590704e608e757dab09cd452fb18971a50a7d7c439677
+  sha256: d209065b12f18b6d7e78f1c16ff9444e5367dddeb41e3225c2cf024762740590
 
 build:
   number: 0
@@ -55,19 +55,16 @@ outputs:
         - click >=8.0.0
         - python
       run_constraints:
+        - python-dotenv >=1.1,<2
         - rloop >=0.1,<0.2
         - setproctitle >=1.3.3,<1.4
         - uvloop >=0.18.0
         - watchfiles >=1.0,<2.0
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
+          pip_check: true
+      - script:
           - granian --help
     about:
       license_file:
@@ -81,17 +78,11 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage("granian", exact=True) }}
-        - python-dotenv >=1.1,<2
+        - python-dotenv
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
-          - granian --help
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
@@ -107,14 +98,8 @@ outputs:
         - setproctitle
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
-          - granian --help
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
@@ -130,14 +115,8 @@ outputs:
         - watchfiles
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
-          - granian --help
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
@@ -155,14 +134,8 @@ outputs:
         - rloop
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
-          - granian --help
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
@@ -179,14 +152,8 @@ outputs:
         - uvloop
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
-          - granian --help
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
@@ -204,14 +171,8 @@ outputs:
         - winloop >=0.2.2
     tests:
       - python:
-          pip_check: true
           imports: granian
-      - requirements:
-          run:
-            - pip
-        script:
-          - pip check
-          - granian --help
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
@@ -229,15 +190,15 @@ outputs:
         - ${{ pin_subpackage("granian-with-dotenv", exact=True) }}
     tests:
       - python:
-          pip_check: true
           imports: granian
+          pip_check: true
     about:
       license_file: LICENSE
       license: BSD-3-Clause
       summary: ${{ summary }} (with all platform-independent [extras])
 
 about:
-  homepage: https://github.com/emmett-framework/granian
+  homepage: https://pypi.org/project/granian
   summary: ${{ summary }}
   repository: https://github.com/emmett-framework/granian
   license: BSD-3-Clause
