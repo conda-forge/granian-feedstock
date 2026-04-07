@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.7.2"
+  version: "2.7.3"
   maturin_min: 1.8.0
   maturin_max: "2"
   summary: A Rust HTTP server for Python applications
@@ -13,7 +13,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: cdae2f3a26fa998d41fefad58f1d1c84a0b035a6cc9377addd81b51ba82f927f
+  sha256: c57d32bd3a7d09701a6d1d1dffc116ce3ca972fb1b32c81317de9c109164464c
 
 build:
   number: 0
