@@ -113,9 +113,6 @@ outputs:
       name: granian-with-reload
     build:
       noarch: generic
-      # remove after https://github.com/conda-forge/watchfiles-feedstock/pull/39
-      skip: |-
-        "cp314t" in python
     requirements:
       run:
         - ${{ pin_subpackage("granian", exact=True) }}
