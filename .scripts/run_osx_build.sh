@@ -26,7 +26,7 @@ chmod +x "${micromamba_exe}"
 echo "Creating environment"
 "${micromamba_exe}" create --yes --root-prefix "${MAMBA_ROOT_PREFIX}" --prefix "${MINIFORGE_HOME}" \
   --channel conda-forge \
-  pip rattler-build conda-forge-ci-setup=4 "conda-build>=24.1"
+  pip rattler-build conda-forge-ci-setup=4 "conda-build>=26.3"
 echo "Moving pkgs cache from ${MAMBA_ROOT_PREFIX} to ${MINIFORGE_HOME}"
 mv "${MAMBA_ROOT_PREFIX}/pkgs" "${MINIFORGE_HOME}"
 echo "Cleaning up micromamba"
@@ -96,10 +96,6 @@ fi
 if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
     echo "rattler-build does not currently support debug mode"
 else
-
-    if [[ "${HOST_PLATFORM}" != "${BUILD_PLATFORM}" ]]; then
-        EXTRA_CB_OPTIONS="${EXTRA_CB_OPTIONS:-} --test skip"
-    fi
 
     rattler-build build --recipe ./recipe \
         -m ./.ci_support/${CONFIG}.yaml \
