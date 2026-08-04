@@ -54,7 +54,7 @@ outputs:
       host:
         - pip
         - python
-        - maturin >=1.8,<2.0
+        - maturin >=1.14.0,<2
         - if: unix
           then:
             - jemalloc
