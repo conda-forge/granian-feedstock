@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.7.9"
+  version: "2.8.0"
   summary: A Rust HTTP server for Python applications
 
 recipe:
@@ -10,8 +10,8 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: 096d9a3396b13826bc63d2cf424ed04daf1ea077beed361d48dca2d55cb4b527
+  url: https://files.pythonhosted.org/packages/source/g/granian/granian-${{ version }}.tar.gz
+  sha256: be842c6737b41beb6fe6521f9c46695a1843ec9e086a18bbbc945ed170ff28e2
 
 build:
   number: 0
@@ -54,7 +54,7 @@ outputs:
       host:
         - pip
         - python
-        - maturin >=1.8,<2.0
+        - maturin >=1.14.0,<2
         - if: unix
           then:
             - jemalloc
