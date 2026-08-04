@@ -10,7 +10,7 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/g/granian/granian-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/g/granian/granian-${{ version }}.tar.gz
   sha256: be842c6737b41beb6fe6521f9c46695a1843ec9e086a18bbbc945ed170ff28e2
 
 build:
