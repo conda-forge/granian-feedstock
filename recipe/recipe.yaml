@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.8.4"
+  version: "2.8.5"
   summary: A Rust HTTP server for Python applications
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://files.pythonhosted.org/packages/source/g/granian/granian-${{ version }}.tar.gz
-  sha256: 15e4f240dda62ca1bc9d84b264a25503812481ac60dfbedd784a3a25de110436
+  sha256: 032588689e2d524d633fcb088ee54fad4c5655d0af1a75058d5b4240be4f6864
 
 build:
   number: 0
