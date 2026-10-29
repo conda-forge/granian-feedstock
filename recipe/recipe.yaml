@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: "2.8.7"
-  cargo_wrapper: cargo-auditable-wrapper${{ ".bat" if win }}
+  cargo_wrapper: cargo-auditable-wrapper.${{ "bat" if win else "sh" }}
   summary: A Rust HTTP server for Python applications
 
 recipe:
